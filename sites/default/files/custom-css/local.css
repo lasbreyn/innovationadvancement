@@ -1,0 +1,36 @@
+.pane-cod-schedule-menu-pane ul.menu li a {
+  padding: 10px 40px;
+  background-color: #EEF2F2;
+}
+
+.pane-cod-schedule-menu-pane ul.menu li a.active {
+  background-color: #636060;
+  color: white;
+}
+
+.pane-cod-schedule-menu-pane ul.menu li {
+  list-style: none;
+  display: inline-block;
+}
+
+.view-cod-schedule-content .view-content h3 {
+  background-color: #CEF3F9;
+  text-indent: 20px;
+  padding: 5px;
+  font-weight: bold;
+}
+
+.view-cod-schedule-content .view-content .views-row {
+  padding: 0 20px;
+  border-bottom: 1px solid #AFACAC;
+}
+.view-cod-schedule-content .view-content .views-row .views-field.views-field-name {
+  padding-left: 30px;
+  background: url("../images/schedule-se89b5e48a1.png")
+}
+
+.view-cod-schedule-content .view-content .views-row .views-field-title {
+  font-weight: bold;
+  font-size: 1.4em;
+  font-variant: small-caps;
+}
