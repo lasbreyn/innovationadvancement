@@ -26,11 +26,50 @@
 }
 .view-cod-schedule-content .view-content .views-row .views-field.views-field-name {
   padding-left: 30px;
-  background: url("../images/schedule-se89b5e48a1.png")
+  background: url("../images/schedule-se89b5e48a1.png") no-repeat 10px 15px;
+  background-position: 0 -83px;
+  font-size: 14px;
+  font-size: 0.875rem;
 }
 
 .view-cod-schedule-content .view-content .views-row .views-field-title {
   font-weight: bold;
   font-size: 1.4em;
   font-variant: small-caps;
+}
+
+/* webform */
+#node-11 section.node-submitted {
+  display: none;
+}
+
+/* sidebar */
+#block-menu-menu-sidebar-menu ul.menu li {
+  list-style: none;
+}
+#block-menu-menu-sidebar-menu ul.menu li a {
+  list-style: none;
+  display: block;
+  font-size: 110%;
+  font-weight: bold;
+  overflow: hidden;
+  padding: 20px 0 30px 20px;
+  text-transform: uppercase;
+}
+
+#block-menu-menu-sidebar-menu ul.menu li a.buyyourticket {
+  background: url('../images/icon-1.png') no-repeat 10px 15px;
+  padding-left: 50px;
+}
+#block-menu-menu-sidebar-menu ul.menu li a.seminarresources {
+  background: url('../images/icon-3.png') no-repeat 10px 15px;
+  padding-left: 50px;
+}
+#block-menu-menu-sidebar-menu ul.menu li a.whenwhere {
+  background: url('../images/icon-2.png') no-repeat 10px 15px;
+  padding-left: 50px;
+}
+#block-menu-menu-sidebar-menu ul.menu li a.whoareinvited {
+  background: url('../images/icon-4.png') no-repeat 10px 15px;
+  padding-left: 50px;
 }
