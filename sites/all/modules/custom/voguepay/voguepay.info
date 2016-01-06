@@ -1,0 +1,7 @@
+; $Id$
+name = Simple drupal payment module that allows you to embed "VoguePay Buy Now Button" into any drupal content directly.
+description = "eCommerce - Voguepay - Drupal Plugin"
+core = 7.x
+version = "7.x"
+package = Voguepay
+configure = admin/config/services/voguepay

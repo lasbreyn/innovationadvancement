@@ -1,0 +1,2 @@
+<?php
+include_once "voguepay.module.php";

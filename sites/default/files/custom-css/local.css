@@ -24,18 +24,23 @@
   padding: 0 20px;
   border-bottom: 1px solid #AFACAC;
 }
-.view-cod-schedule-content .view-content .views-row .views-field.views-field-name {
+.view-cod-schedule-content .view-content .views-row .views-field.views-field-name,
+.view-cod-schedule-content .view-content .views-row .views-field-field-speakers {
   padding-left: 30px;
-  background: url("../images/schedule-se89b5e48a1.png") no-repeat 10px 15px;
-  background-position: 0 -83px;
-  font-size: 14px;
-  font-size: 0.875rem;
+  font-variant: small-caps;
+  font-size: 1em;
 }
 
-.view-cod-schedule-content .view-content .views-row .views-field-title {
-  font-weight: bold;
-  font-size: 1.4em;
-  font-variant: small-caps;
+.view-cod-schedule-content .view-content .views-row .views-field.views-field-name {
+  background: url("../images/schedule-se89b5e48a1.png") no-repeat 10px 15px;
+  background-position: 0 -83px;
+}
+
+.view-cod-schedule-content .view-content .views-row .views-field-field-speakers {
+  background: url("../images/schedule-se89b5e48a1.png") no-repeat 10px 15px;
+  background-position: 0px -31px;
+  height: 21px;
+  margin: 7px 0px;
 }
 
 /* webform */
@@ -61,7 +66,7 @@
   background: url('../images/icon-1.png') no-repeat 10px 15px;
   padding-left: 50px;
 }
-#block-menu-menu-sidebar-menu ul.menu li a.seminarresources {
+#block-menu-menu-sidebar-menu ul.menu li a.resources {
   background: url('../images/icon-3.png') no-repeat 10px 15px;
   padding-left: 50px;
 }
