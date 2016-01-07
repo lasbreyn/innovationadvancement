@@ -30,10 +30,8 @@
       $items['admin/config/services/voguepay'] = array(
         'title' => 'Voguepay',
         'description' => 'Voguepay - Drupal Plugin',
-
         'page callback'    => 'drupal_get_form',
         'page arguments'   => array('voguepay_form'),
-
         'access arguments' => array('administer nodes'),
         'type' => MENU_NORMAL_ITEM,
       );
@@ -48,7 +46,8 @@
   }
 
   function voguepay_form() {
-     $form['merchant'] = array(
+
+     $form['voguepay']['merchant'] = array(
         '#type' => 'textfield',
         '#title' => t('VoguePay Merchant ID'),
         '#default_value' => variable_get('vogue_merchant',''),
@@ -56,26 +55,38 @@
         '#required' => TRUE
   	  );
 
-  	$form['color'] = array(
-     '#type' => 'select',
-     '#title' => t('Button Color'),
-     '#default_value' => variable_get('vogue_color','blue'),
-     '#options' => array(
-          'blue' => t('Blue'),
-          'red' => t('Red'),
-          'green' => t('Green'),
-          'grey' => t('Grey'),
-        ),
-     '#description' => t(''),
-        '#required' => FALSE
+    	$form['voguepay']['color'] = array(
+       '#type' => 'select',
+       '#title' => t('Button Color'),
+       '#default_value' => variable_get('vogue_color','blue'),
+       '#options' => array(
+            'blue' => t('Blue'),
+            'red' => t('Red'),
+            'green' => t('Green'),
+            'grey' => t('Grey'),
+          ),
+       '#description' => t(''),
+          '#required' => FALSE
       );
 
-     $form['custom'] = array(
+      $form['voguepay']['custom'] = array(
         '#type' => 'textfield',
         '#title' => t('Custom button'),
         '#default_value' => variable_get('vogue_custom',''),
         '#description' => t(''),
         '#required' => FALSE
+  	  );
+      $node_types = [];
+      foreach(node_type_get_types() as $node_type) {
+        $node_types[$node_type->type] =  $node_type->name;
+      }
+
+  	  $form['voguepay']['nodetypes'] = array(
+    	  '#title' => t('Enable voguepay on these node types'),
+    	  '#type' => 'checkboxes',
+        '#options' => $node_types,
+        '#default_value' => variable_get('vogue_nodetypes', ''),
+        '#required' => TRUE
   	  );
 
       $form['submit'] = array(
@@ -83,8 +94,7 @@
       '#value' => t('Save Changes'),
     );
 
-
-  	  return $form;
+    return $form;
   }
 
   function voguepay_form_submit(&$form, $form_state) {
@@ -92,10 +102,12 @@
     $merchant=$form_state['values']['merchant'];
     $color=$form_state['values']['color'];
     $custom=$form_state['values']['custom'];
+    $node_types=$form_state['values']['nodetypes'];
 
     variable_set('vogue_merchant',$merchant);
     variable_set('vogue_color',$color);
     variable_set('vogue_custom',$custom);
+    variable_set('vogue_nodetypes',$node_types);
 
     drupal_set_message(t("Your changes were saved successfully."));
 
@@ -158,9 +170,12 @@
   }
 
   function voguepay_node_view($node, $view_mode, $langcode) {
-    switch ($node->type) {
-      case 'conference':
-      drupal_set_message( '<pre>'.print_r($node->content, TRUE). '</pre>');
+
+    $node_types = variable_get('vogue_nodetypes', '');
+    if(in_array($node->type, $node_types, true)) {
+      drupal_set_message( '<pre>'.print_r("Yes", TRUE). '</pre>');
+    }
+
 /*
         $node->content['extra_link'] = array(
             '#weight' => 10,
@@ -173,8 +188,7 @@
             ),
         );
 */
-        break;
-    }
+
   }
 
   function voguepay_getTransactionStatus() {
@@ -213,5 +227,23 @@
     }
   }
 
+  function voguepay_commerce_payment_method_info() {
+    $payment_methods['paypal_wps'] = array(
+      'base' => 'commerce_paypal_wps',
+      'title' => t('PayPal WPS'),
+      'short_title' => t('PayPal'),
+      'description' => t('PayPal Website Payments Standard'),
+      'terminal' => FALSE,
+      'offsite' => TRUE,
+      'offsite_autoredirect' => TRUE,
+    );
+  }
 
-
+  function voguepay_commerce_payment_transaction_status_info() {
+    $statuses[COMMERCE_PAYMENT_STATUS_SUCCESS] = array(
+      'status' => COMMERCE_PAYMENT_STATUS_SUCCESS,
+      'title' => t('Success'),
+      'icon' => drupal_get_path('module', 'commerce_payment') . '/theme/icon-success.png',
+      'total' => TRUE,
+    );
+  }
