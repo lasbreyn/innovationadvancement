@@ -78,3 +78,21 @@
   background: url('../images/icon-4.png') no-repeat 10px 15px;
   padding-left: 50px;
 }
+
+/* Slideshow */
+#views_slideshow_cycle_teaser_section_front_page_slideshow-block {
+  position: absolute;
+}
+
+#views_slideshow_cycle_teaser_section_front_page_slideshow-block .views-field views-field-title {
+  position: relative;
+  top: 300px;
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-left: 20px;
+}
+#views_slideshow_cycle_teaser_section_front_page_slideshow-block .views-field-field-slideshow-caption {
+  position: relative;
+  top: 300px;
+  margin-left: 20px;
+}
