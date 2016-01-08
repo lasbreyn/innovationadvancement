@@ -227,6 +227,7 @@
     }
   }
 
+/*
   function voguepay_commerce_payment_method_info() {
     $payment_methods['paypal_wps'] = array(
       'base' => 'commerce_paypal_wps',
@@ -247,3 +248,4 @@
       'total' => TRUE,
     );
   }
+*/
