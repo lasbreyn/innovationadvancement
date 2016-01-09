@@ -85,27 +85,26 @@
 }
 
 #views_slideshow_cycle_teaser_section_front_page_slideshow-block .views-field-title {
-  font-size: 1.5em;
   font-weight: bold;
   background-color: rgba(5, 5, 5, 0.6);
   padding: 4px 10px;
-  text-indent: 15px;
 }
 
 #views_slideshow_cycle_teaser_section_front_page_slideshow-block .views-field-title a {
   color: white;
   font-weight: bold;
-  font-size: 120%;
+  font-size: 100%;
+  padding-left: 1em;
 }
 
 #views_slideshow_cycle_teaser_section_front_page_slideshow-block .views-field-field-slideshow-caption {
   background-color: rgba(5, 5, 5, 0.6);
   padding: 4px 10px;
-  text-indent: 15px;
 }
 
 #views_slideshow_cycle_teaser_section_front_page_slideshow-block .views-field-field-slideshow-caption p {
   color: white;
+  padding-left: 1em;
 }
 
 /* Speakers */
