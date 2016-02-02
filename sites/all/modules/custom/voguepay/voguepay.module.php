@@ -172,9 +172,9 @@
   function voguepay_node_view($node, $view_mode, $langcode) {
 
     $node_types = variable_get('vogue_nodetypes', '');
-    if(in_array($node->type, $node_types, true)) {
-      drupal_set_message( '<pre>'.print_r("Yes", TRUE). '</pre>');
-    }
+    // if(in_array($node->type, $node_types, true)) {
+    //   drupal_set_message( '<pre>'.print_r("Yes", TRUE). '</pre>');
+    // }
 
 /*
         $node->content['extra_link'] = array(
